@@ -4,8 +4,9 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
   /* here you can define another js file */
   entry: {
-    index: "./src/js/index.js",
-    another: "./src/js/another.js",
+    main: "./src/js/main.js",
+    game: "./src/js/game.js",
+    test: "./src/js/test.js"
   },
   output: {
     filename: "[name].[hash:8].js",
@@ -79,14 +80,38 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/pages/index.html",
       inject: true,
-      chunks: ["index"],
+      chunks: ["main", "test"],
       filename: "index.html",
     }),
     new HtmlWebpackPlugin({
-      template: "./src/pages/another.html",
+      template: "./src/pages/about-html.html",
       inject: true,
-      chunks: ["index", "another"],
-      filename: "another.html",
+      chunks: ["main"],
+      filename: "about-html.html",
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/pages/about-css.html",
+      inject: true,
+      chunks: ["main"],
+      filename: "about-css.html",
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/pages/about-js.html",
+      inject: true,
+      chunks: ["main"],
+      filename: "about-js.html",
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/pages/game.html",
+      inject: true,
+      chunks: ["main", "game"],
+      filename: "game.html",
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/pages/inne.html",
+      inject: true,
+      chunks: ["main"],
+      filename: "inne.html",
     }),
   ],
 };
