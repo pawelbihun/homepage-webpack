@@ -1,4 +1,5 @@
 import '../scss/main.scss';
+import moment from 'moment';
 
 // hamburger menu 
 const menu = document.querySelector('.hamburger-menu--js');
@@ -8,3 +9,6 @@ menu.addEventListener('click', (e) => {
     nav.classList.toggle('navigation--add-top-padding');
 })
 
+
+
+console.log(moment().startOf('year').fromNow());
